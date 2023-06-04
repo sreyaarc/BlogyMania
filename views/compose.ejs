@@ -1,0 +1,10 @@
+<%- include("header") -%>
+
+    <form action="/compose" method="post" class="form">
+        <input type="text" name="image" value="" class="inputImg" placeholder="Paste your image url">
+        <input type="text" name="title" value="" class="inputTitle" placeholder="Enter your title">
+        <textarea name="content" class="inputContent" cols="30" rows="10" placeholder="Enter your text"></textarea>
+        <button type="submit" class="btn">ADD</button>
+    </form>
+
+<%- include("footer") -%>
