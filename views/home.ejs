@@ -1,6 +1,19 @@
 <%- include("header") -%>
 
-    
+    <div class="navbar">
+        <a class="logo aTag" href="/"><img class="logoImg" src="/Icons/unicorn.png"/> BlogyMania</a>
+        <div id="all">
+            <div class="toggle">
+                ☰
+            </div>
+            <div class="subNav">
+                <a href="/" class="aTag">Home</a>
+                <a href="/compose" class="aTag">Compose</a>
+                <a href="/register" class="aTag">Register</a>
+                <a href="/<%= logged %>" class="aTag"><%= logged %></a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <img src="https://assets-global.website-files.com/61406347b8db463e379e2732/61f18da8c4d01483847352d0_RFJm5bJCTg_eHjkLkw8VVZ8JHDGHTxS3uckwMYZ6TSOVyE0md8yGfDWUxo9EKXy7V9jBwi3VXkkGe6YI49p3Mx-CN-GE9Ys4-88wY_n5CPoEzCEXiBKHnXAUEdecCcI2FronHHI_.jpeg" />
         <h2>Welcome to BlogyMania</h2>
