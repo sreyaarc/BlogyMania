@@ -92,13 +92,14 @@ a {
     margin-top: 160px;
     margin-right: auto;
 }
-.inputImg, .inputTitle, .inputContent, .btn {
+.inputImg, .inputTitle, .inputContent, .btn, .email, .pwd, .confPwd, .btnSubmit {
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
     border:none;
     outline:none;
-    background-color: #F9E0BB;
+    /* background-color: #F9E0BB; */
+    background-color: #f7e5c9;
     font-size: 0.9rem;
 }
 .btn {
@@ -137,6 +138,16 @@ a {
     object-fit: cover;
 }
 
+.newC {
+    margin-top: 0;
+}
+.email, .pwd, .confPwd {
+    width: 330px;
+}
+.btnSubmit {
+    width: 360px;
+}
+
 
 
 
@@ -148,7 +159,7 @@ a {
         width: 700px;
         object-fit: cover;
     }
-    h2, p, .innerContent {
+    h2, p, .innerContent, .form {
         width: 700px;
     }
     .actualBlogs {
@@ -169,7 +180,7 @@ a {
     .innerImg {
         height: 260.41px;
     }
-    h2, p, .innerContent {
+    h2, p, .innerContent, .form {
         width: 500px;
     }
     .actualBlogs {
@@ -182,6 +193,11 @@ a {
         margin-top: 15px;
     }
 }
+@media screen and (max-width: 700px) {
+    .form {
+        width: 400px;
+    }
+}
 @media screen and (max-width: 600px) {
     img, .innerImg, .postImg {
         width: 300px;
@@ -190,7 +206,7 @@ a {
     .innerImg {
         height: 156.25px;
     }
-    h2, p, .innerContent {
+    h2, p, .innerContent, .form {
         width: 300px;
     }
     .sub {
@@ -198,8 +214,3 @@ a {
     }
 }
 
-@media screen and (max-width: 500px) {
-    .container {
-        margin:auto;
-    }
-}
