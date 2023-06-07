@@ -1,5 +1,19 @@
 <%- include("header") -%>
 
+    <div class="navbar">
+        <a class="logo aTag" href="/"><img class="logoImg" src="/Icons/unicorn.png"/> BlogyMania</a>
+        <div id="all">
+            <div class="toggle">
+                ☰
+            </div>
+            <div class="subNav">
+                <a href="/" class="aTag">Home</a>
+                <a href="/compose" class="aTag">Compose</a>
+                <a href="/register" class="aTag">Register</a>
+                <a href="/<%= logged %>" class="aTag"><%= logged %></a>
+            </div>
+        </div>
+    </div>
     <form action="/compose" method="post" class="form">
         <input type="text" name="image" value="" class="inputImg" placeholder="Paste your image url">
         <input type="text" name="title" value="" class="inputTitle" placeholder="Enter your title">
