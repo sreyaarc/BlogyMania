@@ -1,0 +1,27 @@
+<%- include("header") %>
+
+<div class="navbar">
+    <a class="logo aTag" href="/"><img class="logoImg" src="/Icons/unicorn.png"/> BlogyMania</a>
+    <div id="all">
+        <div class="toggle">
+            ☰
+        </div>
+        <div class="subNav">
+            <a href="/" class="aTag">Home</a>
+            <a href="/compose" class="aTag">Compose</a>
+            <a href="/register" class="aTag">Register</a>
+            <a href="/<%= logged %>" class="aTag"><%= logged %></a>
+        </div>
+    </div>
+</div>
+<form action="/register" method="POST" class="form newF">
+    <div class="container newC">
+        <input type="email" class="email" placeholder="abc@gmail.com" name="username" autocomplete="off">
+        <input type="password" class="pwd" placeholder="Enter a strong password"  name="password" autocomplete="off">
+        <input type="password" name="confirmPassword" class="confPwd" placeholder="Confirm password" autocomplete="off">
+        <button type="submit" class="btn btnSubmit">REGISTER</button>
+    </div>
+</form>
+
+
+<%- include("footer") %>
