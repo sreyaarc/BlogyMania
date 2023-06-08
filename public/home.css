@@ -11,13 +11,16 @@ img {
     margin-bottom: 20px;
 }
 
-h2, p {
+h2, p, h3{
     width: 950px;
     text-align: justify;
 }
-h2 {
+h2, h3 {
     margin: 0 0 15px;
     text-align: center;
+}
+h3 {
+    padding-bottom: 10px;
 }
 p {
     margin-bottom: 20px;
@@ -92,7 +95,7 @@ a {
     margin-top: 160px;
     margin-right: auto;
 }
-.inputImg, .inputTitle, .inputContent, .btn, .email, .pwd, .confPwd, .btnSubmit {
+.inputImg, .inputTitle, .inputContent, .btn, .email, .pwd, .confPwd, .btnSubmit, .name {
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
@@ -101,6 +104,12 @@ a {
     /* background-color: #F9E0BB; */
     background-color: #f7e5c9;
     font-size: 0.9rem;
+}
+.email, .pwd, .confPwd, .btnSubmit {
+    margin-top: 10px;
+}
+p.innerContent {
+    height: 89.56px;
 }
 .btn {
     font-weight: bold;
@@ -141,13 +150,55 @@ a {
 .newC {
     margin-top: 0;
 }
-.email, .pwd, .confPwd {
+.email, .pwd, .confPwd, .name {
     width: 330px;
 }
 .btnSubmit {
     width: 360px;
 }
+#ME {
+    border-radius: 50%;
+    padding: 10px 6.5px;
+    background-color: #97776b;
+    color: white;
+}
+.author {
+    font-style: italic;
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+    width: fit-content;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background-color: rgb(177, 175, 175);
+}
+.newF {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.google {
+    margin-left: 20px;
+}
+.googleLogo {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    margin-right: 5px;
 
+}
+.registerBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(250, 57, 57, 0.932);
+    color: white;
+    letter-spacing: 1.2px;
+    line-height: 1.4;
+}
+.registerBtn:hover {
+    background-color: rgb(255, 89, 89);
+}
 
 
 
@@ -171,6 +222,12 @@ a {
     .sub {
         margin-top: 15px;
     }
+    .newF {
+        flex-direction: column;
+    }
+    .google {
+        margin-left:0;
+    }
 }
 @media screen and (max-width: 900px) {
     img, .innerImg, .postImg {
@@ -192,6 +249,12 @@ a {
     .sub {
         margin-top: 15px;
     }
+    .newF {
+        flex-direction: column;
+    }
+    .google {
+        margin-left:0;
+    }
 }
 @media screen and (max-width: 700px) {
     .form {
@@ -211,6 +274,15 @@ a {
     }
     .sub {
         margin-top: 15px;
+    }
+    p.innerContent {
+        height: auto;
+    }
+    .newF {
+        flex-direction: column;
+    }
+    .google {
+        margin-left:0;
     }
 }
 
