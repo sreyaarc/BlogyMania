@@ -50,7 +50,8 @@ const Blog = mongoose.model("Blog", blogSchema);
 
 const userSchema = new mongoose.Schema({
     username: String,
-    password: String
+    password: String,
+    blogs : [blogSchema]
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -66,15 +67,19 @@ passport.deserializeUser(User.deserializeUser());
 app.get("/", (req, res) => {
     if(req.isAuthenticated()) {
         Blog.find({}).then((docs) => {
+            // console.log(docs)
             res.render('home', {
                 docs: docs,
+                isRegistered: "ME",
                 logged: "LogOut"
+                
             });
         }).catch((err) => console.log(err));  
     } else {
         Blog.find({}).then((docs) => {
             res.render('home', {
                 docs: docs,
+                isRegistered: "Register",
                 logged: "Login"
             });
         }).catch((err) => console.log(err));  
@@ -85,6 +90,7 @@ app.get("/", (req, res) => {
 app.get("/compose", (req, res) => {
     if(req.isAuthenticated()) {
         res.render("compose", {
+            isRegistered: "ME",
             logged: "LogOut"
         });
     } else {
@@ -93,15 +99,17 @@ app.get("/compose", (req, res) => {
 })
 
 app.post("/compose", (req, res) => {
-    // console.log(req.body);
+    // console.log(req.user);
     const newBlog = new Blog({
         imgUrl: req.body.image,
         title: req.body.title,
         content : req.body.content
     });
-    newBlog.save().then(() => {
-        console.log("saved into the collection")
-        res.redirect("/");
+    User.findByIdAndUpdate(req.user._id, {$push: {blogs: newBlog}}).then((updatedUser) => {
+        newBlog.save().then(() => {
+            console.log("saved into the collection")
+            res.redirect("/");
+        })  
     })
     .catch((err) => {
         console.log(err)
@@ -129,9 +137,13 @@ app.get("/blogs/:blogTitle", (req, res) => {
         //     });
 
         // }).catch((e) => console.log(e));
+
         Blog.findOne({title: req.params.blogTitle}).then((doc) => {
+            // console.log(fname)
             res.render("post", {
+                isRegistered: "ME",
                 logged: "LogOut",
+                blog: doc,
                 image: doc.imgUrl,
                 title: doc.title,
                 content: doc.content
@@ -142,13 +154,36 @@ app.get("/blogs/:blogTitle", (req, res) => {
     }
 });
 
+app.get("/ME", (req, res) => {
+    if(req.user) {
+        User.findById(req.user._id).then((foundUser) => {
+            console.log(foundUser.username)
+            if(foundUser) {
+                res.render("account", {
+                    logged: "LogOut",
+                    username: foundUser.username,
+                    docs: foundUser.blogs
+                });
+            } else {
+                res.redirect("/login")
+            }    
+        }).catch((err) => {
+            console.log(err)
+        })
+    } else {
+        res.redirect("/login")
+    }
+});
+
 app.get("/register", (req, res) => {
     if(req.isAuthenticated()) {
         res.render("register", {
+            isRegistered: "ME",
             logged: "LogOut"
         })
     } else {
         res.render("register", {
+            isRegistered: "Register",
             logged: "Login"
         })
     }
@@ -157,6 +192,7 @@ app.get("/register", (req, res) => {
 
 app.get("/Login", (req, res) => {
     res.render("login", {
+        isRegistered: "Register",
         logged: "Login"
     }) 
 });
@@ -173,7 +209,7 @@ app.get("/LogOut", (req, res) => {
 
 app.post("/register", (req, res) => {
     // using passport-local-mongoose to register the user
-    console.log(req.body)
+    // console.log(req.body)
     if(req.body.password === req.body.confirmPassword) {
         User.register({username: req.body.username}, req.body.password, function(err, user) {
             if(err) {
@@ -184,14 +220,14 @@ app.post("/register", (req, res) => {
                 console.log("request="+req)
                 passport.authenticate("local")(req, res, function() {
                     
-                    res.redirect("/");
+                    res.redirect("/login");
                 });
             };
         });
     } else {
         notifier.notify({
             title: "Alert",
-            message: "Passwords doesn't match"
+            message: "Password doesn't match"
         });
         function redirect() {
             res.redirect("/register");
@@ -221,3 +257,8 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("Server started at port "+port);
 })
+
+
+
+// demo : demo@user.com
+// pwd : demouserdemo
