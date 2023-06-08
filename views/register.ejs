@@ -9,8 +9,8 @@
         <div class="subNav">
             <a href="/" class="aTag">Home</a>
             <a href="/compose" class="aTag">Compose</a>
-            <a href="/register" class="aTag">Register</a>
             <a href="/<%= logged %>" class="aTag"><%= logged %></a>
+            <a href="/<%= isRegistered %>" class="aTag" id="<%= isRegistered %>"><%= isRegistered %></a>
         </div>
     </div>
 </div>
@@ -22,6 +22,5 @@
         <button type="submit" class="btn btnSubmit">REGISTER</button>
     </div>
 </form>
-
 
 <%- include("footer") %>
