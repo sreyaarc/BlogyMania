@@ -202,6 +202,15 @@ p.innerContent {
 .registerBtn:hover {
     background-color: rgb(255, 89, 89);
 }
+.deleteLogoBtn {
+    border: none;
+    outline: none;
+    margin: 0;
+
+}
+.deleteLogoBtn:hover {
+    cursor: pointer;
+}
 
 
 
