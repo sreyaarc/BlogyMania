@@ -272,7 +272,7 @@ app.get("/LogOut", (req, res) => {
 
 app.post("/register", (req, res) => {
     // using passport-local-mongoose to register the user
-    console.log("register details = " + req.body)
+    // console.log("register details = " + req.body)
     if(req.body.password === req.body.confirmPassword) {
         User.register({username: req.body.username}, req.body.password, function(err, user) {
             if(err) {
@@ -325,7 +325,6 @@ app.post("/delete", (req, res) => {
     Blog.findByIdAndDelete(deleteId).then((doc) => {  // deleting from the home page
         // console.log(doc)
         console.log("deleted from home page");
-        res.redirect("/ME");
     }).catch((e) => console.log(e));
 
     const query = {username: req.user.username};
