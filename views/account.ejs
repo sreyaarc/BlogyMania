@@ -3,20 +3,24 @@
 <div class="navbar">
     <a class="logo aTag" href="/"><img class="logoImg" src="/Icons/unicorn.png"/> BlogyMania</a>
     <div id="all">
-        <div class="toggle">
-            ☰
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
         <div class="subNav">
-            <a href="/" class="aTag">Home</a>
-            <a href="/compose" class="aTag">Compose</a>
-            <a href="/<%= logged %>" class="aTag"><%= logged %></a>
-            <a href="/ME" class="aTag" id="ME">ME</a>
+            <div class="innerSubnav">
+                <a href="/" class="aTag">Home</a>
+                <a href="/compose" class="aTag">Compose</a>
+                <a href="/<%= logged %>" class="aTag"><%= logged %></a>
+                <a href="/ME" class="aTag" id="ME">ME</a>
+            </div>  
         </div>
     </div>
 </div>
 <form action="/delete" method="POST">
     <div class="container">
-        <h3>Hi <%= username %>! 🖐</h3>
+        <h3 class="username">Hi <%= username %>! 🖐</h3>
         <% docs.forEach((doc) => { %>
             <div class="sub">
                 <img src="<%= doc.imgUrl %>" class="innerImg"/>
