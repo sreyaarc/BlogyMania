@@ -3,18 +3,22 @@
 <div class="navbar">
     <a class="logo aTag" href="/"><img class="logoImg" src="/Icons/unicorn.png"/> BlogyMania</a>
     <div id="all">
-        <div class="toggle">
-            ☰
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
         <div class="subNav">
-            <a href="/" class="aTag">Home</a>
-            <a href="/compose" class="aTag">Compose</a>
-            <a href="/<%= logged %>" class="aTag"><%= logged %></a>
-            <a href="/<%= isRegistered %>" class="aTag" id="<%= isRegistered %>"><%= isRegistered %></a>
+            <div class="innerSubnav">
+                <a href="/" class="aTag">Home</a>
+                <a href="/compose" class="aTag">Compose</a>
+                <a href="/<%= logged %>" class="aTag"><%= logged %></a>
+                <a href="/<%= isRegistered %>" class="aTag" id="<%= isRegistered %>"><%= isRegistered %></a>
+            </div>  
         </div>
     </div>
 </div>
-<div class="form newF">
+<div class="form newF newForm">
     <form action="/register" method="POST">
         <div class="container newC">
             <input type="email" class="email" placeholder="abc@gmail.com" name="username" autocomplete="off">
