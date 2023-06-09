@@ -15,14 +15,14 @@
     </div>
 </div>
 <div class="container">
-    <h3>Hi <%= username %>🖐</h3>
+    <h3>Hi <%= username %>! 🖐</h3>
     <% docs.forEach((doc) => { %>
         <div class="sub">
             <img src="<%= doc.imgUrl %>" class="innerImg"/>
             <h2 class="innerContent"><%= doc.title %></h2>
             <p class="innerContent"><%= doc.content.slice(0,200) %>....<a href="/blogs/<%= doc.title %>" class="readMore">Read More</a></p>
         </div>
-    <% }) %>
+    <% }) %>  
 </div>
 
 <%- include("footer") %>
