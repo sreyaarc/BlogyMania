@@ -14,16 +14,20 @@
         </div>
     </div>
 </div>
-<form action="/register" method="POST" class="form newF">
-    <div class="container newC">
-        <input type="email" class="email" placeholder="abc@gmail.com" name="username" autocomplete="off">
-        <input type="password" class="pwd" placeholder="Enter a strong password"  name="password" autocomplete="off">
-        <input type="password" name="confirmPassword" class="confPwd" placeholder="Confirm password" autocomplete="off">
-        <button type="submit" class="btn btnSubmit">REGISTER</button>
-    </div>
+<div class="form newF">
+    <form action="/register" method="POST">
+        <div class="container newC">
+            <input type="email" class="email" placeholder="abc@gmail.com" name="username" autocomplete="off">
+            <input type="password" class="pwd" placeholder="Enter a strong password"  name="password" autocomplete="off">
+            <input type="password" name="confirmPassword" class="confPwd" placeholder="Confirm password" autocomplete="off">
+            <button type="submit" class="btn btnSubmit">REGISTER</button>
+        </div> 
+    </form>
     <div class="google">
-        <button class="btn btnSubmit registerBtn"><img src="/Icons/google.png" class="logoImg googleLogo"/> Sign Up with Google</button>
+        <a class="btn registerBtn" href="auth/google"><img src="/Icons/google.png" class="logoImg googleLogo"/> Sign Up with Google</a>
     </div>
-</form>
+</div>
+
+
 
 <%- include("footer") %>
