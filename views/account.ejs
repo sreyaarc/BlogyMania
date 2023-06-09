@@ -14,15 +14,18 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <h3>Hi <%= username %>! 🖐</h3>
-    <% docs.forEach((doc) => { %>
-        <div class="sub">
-            <img src="<%= doc.imgUrl %>" class="innerImg"/>
-            <h2 class="innerContent"><%= doc.title %></h2>
-            <p class="innerContent"><%= doc.content.slice(0,200) %>....<a href="/blogs/<%= doc.title %>" class="readMore">Read More</a></p>
-        </div>
-    <% }) %>  
-</div>
+<form action="/delete" method="POST">
+    <div class="container">
+        <h3>Hi <%= username %>! 🖐</h3>
+        <% docs.forEach((doc) => { %>
+            <div class="sub">
+                <img src="<%= doc.imgUrl %>" class="innerImg"/>
+                <h2 class="innerContent"><%= doc.title %></h2>
+                <p class="innerContent"><%= doc.content.slice(0,200) %>....<a href="/blogs/<%= doc.title %>" class="readMore">Read More</a></p>
+            </div>
+        <% }) %>  
+    </div>
+    <button type="submit" class="deleteLogoBtn" name="deleteId" value="<%= doc._id %>"><img src="https://cdn.pixabay.com/photo/2018/06/01/22/55/icon-3447437_640.png" class="logoImg"/></button>
+</form>
 
 <%- include("footer") %>
