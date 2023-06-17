@@ -36,9 +36,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+const atlasUser = process.env.USER;
+const password = process.env.PASSWORD;
 main().catch(err => console.log(err));
-async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/blogsDB").then(() => {
+async function main() {    //mongodb://127.0.0.1:27017/blogsDB
+    await mongoose.connect(`mongodb+srv://${atlasUser}:${password}@cluster1.anix484.mongodb.net/blogsDB`).then(() => {  // connecting to a cloud database
         console.log("connected")
     }).catch((err) => console.log(err))
 }
