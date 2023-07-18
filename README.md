@@ -11,5 +11,4 @@ The deletion of a blog will be reflected in the home page as well.
 The backend of the project is created using Node.js, express.js and ejs templating. The database is managed using mongoose.
 Authentication is done locally using passport.js as well as with Google using the OAuth 2.0 API.
 
-Find the completed project here 👉 https://blogy-mania.onrender.com/
-
+Create some blogs at 👉 [BlogyMania](https://blogy-mania.onrender.com/) !!!
